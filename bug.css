@@ -1,0 +1,14 @@
+The following CSS code snippet demonstrates an unusual issue.  The intention is to style elements with the class `container` to have a specific width, but due to an unexpected interaction, this rule might not work as intended in some scenarios:
+
+```css
+.container {
+  width: 500px;
+}
+
+.container::before {
+  content: '';
+  display: table;
+}
+```
+
+The `::before` pseudo-element, while seemingly innocuous, can interfere with the `width` property of the parent element under certain conditions. The `display: table;` declaration can create a context where the width of the parent is affected by its content, rather than directly applying the specified width.
